@@ -17,6 +17,7 @@ eval $(echo "cd /home/www/$(cat /deletedomainbaru)")
 echo "curl -L http://$(cat /deleteipawal)/domain-$(cat /deletedomainawal)$(cat /deleteekstensionawal).tar.gz -o domain.tar.gz" | bash -
 echo "curl -L http://$(cat /deleteipawal)/secret > /deletesecret" | bash -
 tar -zxvf domain.tar.gz
+rm -f domain.tar.gz
 echo "sed -e 's|$(cat /deletedomainawal)|$(cat /deletedomainbaru)|g' -e 's|$(cat /deleteuserdbawal)|$(cat /deleteuserdbbaru)|g' -e 's|$(cat /deletepassdbawal)|$(cat /deletepassdbbaru)|g' wp-config.php > wp-config2.php" | bash -
 rm -f wp-config.php
 mv wp-config2.php wp-config.php
@@ -61,7 +62,6 @@ wp db query --allow-root < deletemysql.sql
 rm -f *.sql
 rm -f read*
 rm -f license.txt
-rm -f domain.tar.gz
 echo "rm -f /var/www/html/domain-$(cat /deletedomainawal)$(cat /deleteekstensionawal).tar.gz" | bash -
 echo "rm -f /var/www/html/wp_$(cat /deletedomainawal)$(cat /deleteekstensionawal).sql" | bash -
 echo "$(cat /deletedomainbaru).$(cat /deleteekstensionbaru)" >> /home/clone/report.txt
