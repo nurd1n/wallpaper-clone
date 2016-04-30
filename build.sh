@@ -62,7 +62,7 @@ rm -f read*
 rm -f license.txt
 rm -f domain.tar.gz
 echo "rm -f /var/www/html/domain-$(cat /deletedomainawal)$(cat /deleteekstensionawal).tar.gz" | bash -
-echo "rm -f /var/www/html/wp_$(cat /deletedomainawal)$(cat /deleteekstensionawal).sql | bash -
-cd /home/clone
+echo "rm -f /var/www/html/wp_$(cat /deletedomainawal)$(cat /deleteekstensionawal).sql" | bash -
 echo "$(cat /deletedomainbaru).$(cat /deleteekstensionbaru)" >> /home/clone/report.txt
 rm -f /delete*
+cd /home/clone
