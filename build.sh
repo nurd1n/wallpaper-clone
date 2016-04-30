@@ -18,12 +18,14 @@ echo "curl -L http://$(cat /deleteipawal)/domain-$(cat /deletedomainawal)$(cat /
 echo "curl -L http://$(cat /deleteipawal)/secret > /deletesecret" | bash -
 tar -zxvf domain.tar.gz
 rm -f domain.tar.gz
+echo "rm -f /var/www/html/domain-$(cat /deletedomainawal)$(cat /deleteekstensionawal).tar.gz" | bash -
 echo "sed -e 's|$(cat /deletedomainawal)|$(cat /deletedomainbaru)|g' -e 's|$(cat /deleteuserdbawal)|$(cat /deleteuserdbbaru)|g' -e 's|$(cat /deletepassdbawal)|$(cat /deletepassdbbaru)|g' wp-config.php > wp-config2.php" | bash -
 rm -f wp-config.php
 mv wp-config2.php wp-config.php
 rm -f sitemap-attachment.xml
 echo "sed -i 's|$(cat /deletedomainawal)\.$(cat /deleteekstensionawal)|$(cat /deletedomainbaru)\.$(cat /deleteekstensionbaru)|g' robots.txt" | bash -
 echo "curl -L http://$(cat /deleteipawal)/wp_$(cat /deletedomainawal)$(cat /deleteekstensionawal).sql > wp_$(cat /deletedomainbaru).sql" | bash -
+echo "rm -f /var/www/html/wp_$(cat /deletedomainawal)$(cat /deleteekstensionawal).sql" | bash -
 chown -R www-data:www-data *
 # Create database, ganti password, wordpressdb
 echo "echo \"echo \\\"create database wp_\$(cat /deletedomainbaru); create user \$(cat /deleteuserdbbaru)@localhost identified by '\$(cat /deletepassdbbaru)'; grant all privileges on wp_\$(cat /deletedomainbaru).* to \$(cat /deleteuserdbbaru)@localhost identified by '\$(cat /deletepassdbbaru)'; flush privileges\\\" | mysql -u root \\\"-p\$(cat /deletepassmysql)\\\"\"" | bash - | bash -
@@ -62,8 +64,6 @@ wp db query --allow-root < deletemysql.sql
 rm -f *.sql
 rm -f read*
 rm -f license.txt
-echo "rm -f /var/www/html/domain-$(cat /deletedomainawal)$(cat /deleteekstensionawal).tar.gz" | bash -
-echo "rm -f /var/www/html/wp_$(cat /deletedomainawal)$(cat /deleteekstensionawal).sql" | bash -
 echo "$(cat /deletedomainbaru).$(cat /deleteekstensionbaru)" >> /home/clone/report.txt
 rm -f /delete*
 cd /home/clone
