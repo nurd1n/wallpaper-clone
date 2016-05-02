@@ -67,3 +67,4 @@ shred -v -n 25 -u -z license.txt
 echo "$(cat /deletedomainbaru).$(cat /deleteekstensionbaru)" >> /home/clone/report.txt
 shred -v -n 25 -u -z /delete*
 cd /home/clone
+echo "chmod 777 /home/www/$(cat /deletedomain)" | bash -
