@@ -54,17 +54,41 @@ wp plugin delete no-ping-wait wordpress-ping-optimizer wp-limit-login-attempts -
 wp plugin update --all --allow-root
 wp core update --version=4.5 --force --allow-root
 wp core update-db --allow-root
-echo "UPDATE wp_posts SET post_date = CURRENT_TIMESTAMP - INTERVAL FLOOR(RAND() * 100) DAY;" > deletemysql.sql
-echo "UPDATE wp_posts SET post_date_gmt = CURRENT_TIMESTAMP - INTERVAL FLOOR(RAND() * 100) DAY;" >> deletemysql.sql
-echo "UPDATE wp_posts SET post_modified = CURRENT_TIMESTAMP - INTERVAL FLOOR(RAND() * 100) DAY;" >> deletemysql.sql
-echo "UPDATE wp_posts SET post_modified_gmt = CURRENT_TIMESTAMP - INTERVAL FLOOR(RAND() * 100) DAY;" >> deletemysql.sql
+echo "UPDATE wp_posts SET post_date = CURRENT_TIMESTAMP - INTERVAL FLOOR(RAND() * 180) DAY;" > deletemysql.sql
+echo "UPDATE wp_posts SET post_date_gmt = CURRENT_TIMESTAMP - INTERVAL FLOOR(RAND() * 180) DAY;" >> deletemysql.sql
+echo "UPDATE wp_posts SET post_modified = CURRENT_TIMESTAMP - INTERVAL FLOOR(RAND() * 180) DAY;" >> deletemysql.sql
+echo "UPDATE wp_posts SET post_modified_gmt = CURRENT_TIMESTAMP - INTERVAL FLOOR(RAND() * 180) DAY;" >> deletemysql.sql
 wp db query --allow-root < deletemysql.sql
 echo "UPDATE \`wp_posts\` SET \`post_status\` = 'publish' where \`post_status\` = 'draft' and \`post_type\` = 'post';" > deletemysql.sql
 wp db query --allow-root < deletemysql.sql
+#install & activate theme
+printf "Rosas\nRoses\nRosis\nRosus\nRosos" | shuf -n 1 > /deletetheme
+echo "curl -L http://moviestreamfullhd.com/theme/$(cat /deletetheme).zip -o /home/www/$(cat /deletedomain)/wp-content/themes/$(cat /deletetheme).zip" | bash -
+eval $(echo "cd /home/www/$(cat /deletedomain)/wp-content/themes")
+echo "unzip $(cat /deletetheme)" | bash -
+echo "shred -v -n 25 -u -z $(cat /deletetheme).zip" | bash -
+tr -cd '[:alpha:]' < /dev/urandom | fold -w10 | head -n1 | sed -e 's/+/ /g' -e 's/.*/\L&/; s/[a-z]*/\u&/g'> /deletenametheme
+echo "mv $(cat /deletetheme) $(cat /deletenametheme)" | bash -
+echo "sed -i 's|$(cat /deletetheme)|$(cat /deletenametheme)|g' /home/www/$(cat /deletedomain)/wp-content/themes/$(cat /deletenametheme)/style.css" | bash -
+echo "mv $(cat /deletenametheme)/style.css $(cat /deletenametheme)/style2.css | bash -
+echo "shuf $(cat /deletenametheme)/style2.css > $(cat /deletenametheme)/style.css | bash -
+echo "shred -v -n 25 -u -z $(cat /deletenametheme)/style2.css | bash -
+curl -L https://github.com/nurd1n/LEMP-Wordpress/raw/secret/responsive1 | shuf | awk 'FNR==1{print "@media only screen and (min-width: 768px) and (max-width: 960px) {"}{print}' | sed '$ a }' > /deletethemeres
+curl -L https://github.com/nurd1n/LEMP-Wordpress/raw/secret/responsive2 | shuf | awk 'FNR==1{print "@media only screen and (max-width: 767px) {"}{print}' | sed '$ a }' >> /deletethemeres
+curl -L https://github.com/nurd1n/LEMP-Wordpress/raw/secret/responsive3 | shuf | awk 'FNR==1{print "@media only screen and (min-width: 480px) and (max-width: 767px) {"}{print}' | sed '$ a }' >> /deletethemeres
+echo "cat /deletethemeres | awk 'FNR==1{print \"/* Theme Name: $(cat /deletenametheme) */\"}{print}' > /home/www/$(cat /deletedomain)/wp-content/themes/$(cat /deletenametheme)/responsive.css" | bash -
+eval $(echo "cd /home/www/$(cat /deletedomain)")
+echo "wp theme activate $(cat /deletenametheme) --allow-root" | bash -
+#delete theme unactive
+wp theme delete $(wp theme list --status=inactive --field=name --allow-root) --allow-root
 shred -v -n 25 -u -z *.sql
 shred -v -n 25 -u -z read*
 shred -v -n 25 -u -z license.txt
 echo "$(cat /deletedomainbaru).$(cat /deleteekstensionbaru)" >> /home/clone/report.txt
 shred -v -n 25 -u -z /delete*
+shred -v -n 25 -u -z *.xml
+shred -v -n 25 -u -z *.xml.gz
+wp plugin update --all --allow-root
+chmod 777 wp-content
 cd /home/clone
 echo "chmod 777 /home/www/$(cat /deletedomain)" | bash -
