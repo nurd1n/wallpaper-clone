@@ -98,7 +98,7 @@ tr -cd '[:alpha:]' < /dev/urandom | fold -w10 | head -n1 | tr A-Z a-z > /deleteb
 tr -cd '[:alpha:]' < /dev/urandom | fold -w10 | head -n1 | tr A-Z a-z > /deleterandom
 tr -cd '[:alpha:]' < /dev/urandom | fold -w10 | head -n1 | tr A-Z a-z > /deletesidebar
 tr -cd '[:alpha:]' < /dev/urandom | fold -w10 | head -n1 | tr A-Z a-z > /deletegallery
-echo "$(cat /deletedomainbaru) : $(cat /deletegallery)" >> home/gallery.txt
+echo "$(cat /deletedomainbaru) : $(cat /deletegallery)" >> /home/gallery.txt
 echo "mv $(cat /deletetheme) $(cat /deletenametheme)" | bash -
 echo "mv $(cat /deletenametheme)/images $(cat /deletenametheme)/$(cat /deleteimagefolder)" | bash -
 eval $(echo "cd /home/www/$(cat /deletedomainbaru)/wp-content/themes/$(cat /deletenametheme)/$(cat /deleteimagefolder)")
