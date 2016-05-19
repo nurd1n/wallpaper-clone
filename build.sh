@@ -30,6 +30,7 @@ echo "sed -e 's|$(cat /deletedomainawal)|$(cat /deletedomainbaru)|g' -e 's|$(cat
 shred -v -n 25 -u -z wp-config.php
 mv wp-config2.php wp-config.php
 shred -v -n 25 -u -z *.xml
+shred -v -n 25 -u -z *.xml.gz
 echo "sed -i 's|$(cat /deletedomainawal)\.$(cat /deleteekstensionawal)|$(cat /deletedomainbaru)\.$(cat /deleteekstensionbaru)|g' robots.txt" | bash -
 echo "curl -L http://$(cat /deleteipawal)/wp_$(cat /deletedomainawal)$(cat /deleteekstensionawal).sql > wp_$(cat /deletedomainbaru).sql" | bash -
 echo "shred -v -n 25 -u -z /var/www/html/wp_$(cat /deletedomainawal)$(cat /deleteekstensionawal).sql" | bash -
