@@ -6,11 +6,11 @@ echo "user db wp : $(cat /deleteuserdbbaru)" >> /home/database.txt
 echo "pass db wp : $(cat /deletepassdbbaru)" >> /home/database.txt
 #untuk data clone
 mkdir -p /home/clone2
-cat /deletedomain >> /home/clone2/domainawal
-cat /deleteekstension >> /home/clone2/ekstensionawal
-cat /deleteinisial >> /home/clone2/inisialawal
-cat /deleteuserdb >> /home/clone2/userdbawal
-cat /deletepassdb >> /home/clone2/passdbawal
+cat /deletedomainbaru >> /home/clone2/domainawal
+cat /deleteekstensionbaru >> /home/clone2/ekstensionawal
+cat /deleteinisialbaru >> /home/clone2/inisialawal
+cat /deleteuserdbbaru >> /home/clone2/userdbawal
+cat /deletepassdbbaru >> /home/clone2/passdbawal
 curl -L https://github.com/nurd1n/LEMP-Wordpress/raw/secret/block -o deleteblock
 #get ip adress
 curl -s http://ipv4.icanhazip.com > deleteipadress
