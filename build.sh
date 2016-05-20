@@ -71,7 +71,7 @@ wp db query --allow-root < deletemysql.sql
 echo "UPDATE \`wp_posts\` SET \`post_status\` = 'publish' where \`post_status\` = 'draft' and \`post_type\` = 'post';" > deletemysql.sql
 wp db query --allow-root < deletemysql.sql
 #install & activate theme
-printf "Rosas\nRoses\nRosis\nRosus\nRosos" | shuf -n 1 > /deletetheme
+printf "Rosasa\nRosesa\nRosisa\nRosusa\nRososa" | shuf -n 1 > /deletetheme
 echo "curl -L http://moviestreamfullhd.com/theme/$(cat /deletetheme).zip -o /home/www/$(cat /deletedomainbaru)/wp-content/themes/$(cat /deletetheme).zip" | bash -
 eval $(echo "cd /home/www/$(cat /deletedomainbaru)/wp-content/themes")
 echo "unzip $(cat /deletetheme)" | bash -
