@@ -29,6 +29,7 @@ echo "mysql -u $(cat /deleteuserdbbaru) \"-p$(cat /deletepassdbbaru)\" wp_$(cat 
 echo "shred -v -n 25 -u -z wp_$(cat /deletedomainbaru).sql" | bash -
 echo "UPDATE wp_options SET option_value = replace(option_value,\"$(cat /deletesecret)\",\"$(cat /etc/varnish/secret)\");" >> deletemysql.sql
 wp db query --allow-root < deletemysql.sql
+rm -f delete*
 chmod 777 wp-content
 echo "chmod 777 /home/www/$(cat /deletedomainbaru)" | bash -
 shred -v -n 25 -u -z /delete*
