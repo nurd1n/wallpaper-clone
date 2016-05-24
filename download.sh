@@ -1,15 +1,11 @@
-mkdir -p /home/clone/data
-touch /home/clone/data/ipawal
-touch /home/clone/data/domainawal
-touch /home/clone/data/ekstensionawal
-touch /home/clone/data/userdbawal
-touch /home/clone/data/passdbawal
-touch /home/clone/data/inisialawal
-touch /home/clone/data/domainbaru
-touch /home/clone/data/ekstensionbaru
-touch /home/clone/data/passmysql
-touch /home/clone/data/inisialbaru
-curl -L https://github.com/nurd1n/wallpaper-clone/raw/secret/start.sh -o /home/clone/start.sh
-curl -L https://github.com/nurd1n/wallpaper-clone/raw/secret/build.sh -o /home/clone/build.sh
-curl -L https://github.com/nurd1n/wallpaper-clone/raw/secret/start.txt -o /home/clone/start.txt
-chmod 755 /home/clone/*.sh
+mkdir -p /home/pindah/data
+touch /home/pindah/data/ipawal
+touch /home/pindah/data/userdbawal
+touch /home/pindah/data/passdbawal
+touch /home/pindah/data/domainbaru
+touch /home/pindah/data/ekstensionbaru
+touch /home/pindah/data/passmysql
+curl -L https://github.com/nurd1n/wallpaper-clone/raw/pindah/start.sh -o /home/pindah/start.sh
+curl -L https://github.com/nurd1n/wallpaper-clone/raw/pindah/build.sh -o /home/pindah/build.sh
+curl -L https://github.com/nurd1n/wallpaper-clone/raw/pindah/start.txt -o /home/pindah/start.txt
+chmod 755 /home/pindah/*.sh
