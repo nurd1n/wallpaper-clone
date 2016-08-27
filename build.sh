@@ -61,7 +61,7 @@ wp db query --allow-root < deletemysql.sql
 wp plugin delete no-ping-wait wordpress-ping-optimizer wp-limit-login-attempts wp-all-import-pro --allow-root
 wp plugin delete no-ping-wait wordpress-ping-optimizer wp-limit-login-attempts wp-all-import-pro --allow-root
 wp plugin update --all --allow-root
-wp core update --version=4.5.2 --force --allow-root
+wp core update --version=4.6 --force --allow-root
 wp core update-db --allow-root
 echo "UPDATE wp_posts SET post_date = CURRENT_TIMESTAMP - INTERVAL FLOOR(RAND() * 180) DAY;" > deletemysql.sql
 echo "UPDATE wp_posts SET post_date_gmt = CURRENT_TIMESTAMP - INTERVAL FLOOR(RAND() * 180) DAY;" >> deletemysql.sql
